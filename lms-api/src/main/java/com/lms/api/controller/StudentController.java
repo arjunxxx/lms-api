@@ -3,6 +3,7 @@ package com.lms.api.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,11 +17,12 @@ import com.lms.api.model.Student;
 @RequestMapping("/student")
 public class StudentController {
 
+	
+
 	@GetMapping("/{studentId}")
 	public Student getStudentProfile(@PathVariable String studentId) {
 		Student student = getDummyStudent(studentId);
 		return student;
-
 	}
 
 	private Student getDummyStudent(String studentId) {

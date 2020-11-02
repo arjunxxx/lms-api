@@ -3,7 +3,8 @@ package com.lms.api.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.validation.annotation.Validated;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,10 +18,11 @@ import com.lms.api.model.Student;
 @RequestMapping("/student")
 public class StudentController {
 
-	
+	private static final Logger logger = LoggerFactory.getLogger(StudentController.class);
 
 	@GetMapping("/{studentId}")
 	public Student getStudentProfile(@PathVariable String studentId) {
+		logger.info("-------------------inside student controller-----------------------");
 		Student student = getDummyStudent(studentId);
 		return student;
 	}

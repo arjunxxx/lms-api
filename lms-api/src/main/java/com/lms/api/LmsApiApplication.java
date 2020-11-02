@@ -7,7 +7,6 @@ import org.springframework.context.annotation.ComponentScan;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
-@ComponentScan(basePackages= {"com.lms.api"})
 @EnableSwagger2
 public class LmsApiApplication {
 

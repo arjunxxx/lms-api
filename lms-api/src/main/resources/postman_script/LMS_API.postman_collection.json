@@ -1,0 +1,80 @@
+{
+	"info": {
+		"_postman_id": "dcb0e851-8d22-4e87-91a7-6adc1a5f359b",
+		"name": "LMS_API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST Authentication",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "039416b4-c3bd-4166-9e76-612fef0c657c",
+						"exec": [
+							"var jsonData = pm.response.json()\r",
+							"var jwtToken = jsonData.jwt;\r",
+							"pm.environment.set(\"jwt_token\", jwtToken);\r",
+							"console.log(pm.variables.get(\"jwt_token\"));\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"password\": \"foo\",\r\n  \"username\": \"foo\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/authenticate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Student/{studentId}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/student/:studentId",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"student",
+						":studentId"
+					],
+					"variable": [
+						{
+							"key": "studentId",
+							"value": "2019CSE01"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -24,10 +24,12 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private JwtRequestFilter jwtRequestFilter;
 
-	@Autowired
-	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-		auth.userDetailsService(myUserDetailsService);
-	}
+	
+	 @Override
+	  public void configure(AuthenticationManagerBuilder builder) throws Exception {
+	    builder.userDetailsService(myUserDetailsService);
+	  }
+	
 
 	@Bean
 	public PasswordEncoder passwordEncoder() {
